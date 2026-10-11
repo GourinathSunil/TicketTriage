@@ -1,0 +1,96 @@
+domain_name: ecommerce
+
+priorities:
+  - id: P1
+    name: "P1 - Critical Escalation"
+    description: "Fraud incident, unauthorized charge, or VIP lost delivery"
+    rank: 1
+    deadlines:
+      first_response_minutes: 15
+      resolution_minutes: 180
+    color: "#EF4444"
+    always_24x7: true
+
+  - id: P2
+    name: "P2 - High Priority"
+    description: "Damaged delivery, defective merchandise, or payment dispute"
+    rank: 2
+    deadlines:
+      first_response_minutes: 45
+      resolution_minutes: 360
+    color: "#F97316"
+    always_24x7: false
+
+  - id: P3
+    name: "P3 - Standard"
+    description: "Order status inquiries, returns, and shopper accounts"
+    rank: 3
+    deadlines:
+      first_response_minutes: 180
+      resolution_minutes: 1440
+    color: "#3B82F6"
+    always_24x7: false
+
+  - id: P4
+    name: "P4 - Low"
+    description: "General product questions, recommendations, and feedback"
+    rank: 4
+    deadlines:
+      first_response_minutes: 720
+      resolution_minutes: 4320
+    color: "#6B7280"
+    always_24x7: false
+
+priority_rules:
+  - priority: P1
+    description: "Fraud alert or stolen payment method"
+    any_labels: ["fraud-alert"]
+
+  - priority: P1
+    description: "Payment issue with urgent dispute keywords"
+    all_labels: ["payment-issue"]
+    keywords_any: ["stolen", "unauthorized", "bank fraud", "police", "chargeback immediately"]
+
+  - priority: P2
+    description: "Damaged goods received"
+    any_labels: ["damaged-goods"]
+
+  - priority: P2
+    description: "Return combined with payment failure"
+    all_labels: ["return-exchange", "payment-issue"]
+
+  - priority: P3
+    description: "Order tracking, standard return, or account login"
+    any_labels: ["order-status", "return-exchange", "account-login"]
+
+  - priority: P4
+    description: "Product specification or sizing inquiry"
+    any_labels: ["product-inquiry"]
+
+customer_tiers:
+  standard:
+    name: "Standard Shopper"
+    deadline_multiplier: 1.0
+    priority_bump: 0
+
+  gold:
+    name: "Gold Member"
+    deadline_multiplier: 0.75
+    priority_bump: 0
+
+  platinum:
+    name: "Platinum VIP"
+    deadline_multiplier: 0.50
+    priority_bump: 1
+    priority_bump_labels: ["damaged-goods", "fraud-alert", "order-status"]
+
+business_hours:
+  enabled: true
+  timezone: "UTC"
+  work_start_hour: 8
+  work_end_hour: 20
+  workdays: [0, 1, 2, 3, 4, 5]
+
+sla_status_thresholds:
+  at_risk_percentage: 0.70
+  confidence_gate_margin: 0.10

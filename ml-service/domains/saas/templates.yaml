@@ -1,0 +1,250 @@
+domain_name: saas
+
+slots:
+  endpoints:
+    - "/v1/checkout/charge"
+    - "/api/v2/auth/oauth/token"
+    - "/api/v1/users/batch-sync"
+    - "/api/v1/invoices/generate"
+    - "/v2/webhooks/listener"
+    - "/api/v3/reports/export.csv"
+    - "/graphql"
+    - "/api/v1/projects"
+  services:
+    - "Billing Engine"
+    - "Auth0 / SSO Gateway"
+    - "PostgreSQL Primary Cluster"
+    - "Redis Cache"
+    - "Webhook Dispatcher"
+    - "Kafka Event Bus"
+    - "Reporting Service"
+    - "Dashboard UI"
+  error_codes:
+    - "500 Internal Server Error"
+    - "502 Bad Gateway"
+    - "503 Service Unavailable"
+    - "504 Gateway Timeout"
+    - "401 Unauthorized"
+    - "403 Forbidden"
+    - "429 Too Many Requests"
+    - "ECONNREFUSED"
+    - "ERR_CERT_COMMON_NAME_INVALID"
+    - "CORS preflight blocked"
+  plan_names:
+    - "Starter Monthly"
+    - "Growth Tier"
+    - "Pro Team Annual"
+    - "Enterprise Dedicated"
+    - "Scale-Up"
+  integration_partners:
+    - "Salesforce"
+    - "HubSpot"
+    - "Slack"
+    - "Stripe"
+    - "Zapier"
+    - "Datadog"
+    - "Okta SSO"
+    - "GitHub"
+
+label_frequencies:
+  bug: 0.32
+  how-to-question: 0.28
+  billing: 0.20
+  performance: 0.16
+  integration-issue: 0.15
+  feature-request: 0.14
+  account-access: 0.12
+  refund-request: 0.08
+  outage: 0.06
+  security: 0.03
+  data-export-deletion: 0.03
+
+co_occurrences:
+  - primary: "outage"
+    correlates_with:
+      performance: 0.65
+      bug: 0.45
+  - primary: "billing"
+    correlates_with:
+      refund-request: 0.50
+      bug: 0.25
+  - primary: "security"
+    correlates_with:
+      account-access: 0.60
+      data-export-deletion: 0.20
+  - primary: "feature-request"
+    correlates_with:
+      how-to-question: 0.35
+  - primary: "integration-issue"
+    correlates_with:
+      bug: 0.40
+      performance: 0.30
+
+tones:
+  urgent:
+    prefixes:
+      - "CRITICAL: "
+      - "URGENT: "
+      - "EMERGENCY: "
+      - "[BLOCKER] "
+      - "High Priority: "
+    body_closings:
+      - "This is completely halting our deployment. Please fix ASAP!"
+      - "We are bleeding revenue every minute this is down. Immediate response required."
+      - "Escalating this immediately to our account director if not resolved within an hour."
+      - "Executive visibility on this, need immediate escalation."
+  angry:
+    prefixes:
+      - "Unacceptable: "
+      - "Still broken: "
+      - "Extremely frustrated: "
+    body_closings:
+      - "We have dealt with this three times this week already. Not acceptable for an enterprise plan."
+      - "If this isn't resolved today, we are migrating to your competitor."
+      - "Why does every single release break this same feature?"
+  polite:
+    prefixes:
+      - "Question regarding "
+      - "Assistance needed with "
+      - "Quick question about "
+    body_closings:
+      - "Thanks in advance for your help!"
+      - "Appreciate any pointers or documentation you can provide."
+      - "Let me know whenever you have a chance to take a look. Best regards."
+  neutral:
+    prefixes:
+      - "Issue with "
+      - "Observed behavior on "
+      - "Inquiry regarding "
+    body_closings:
+      - "Please review and let us know the resolution."
+      - "Awaiting your team's feedback."
+      - "Logs and screenshots can be provided upon request."
+
+templates:
+  outage:
+    subjects:
+      - "Checkout API returns {error_codes} since this morning"
+      - "Complete platform outage on production EU region"
+      - "{services} is completely down and unreachable"
+      - "All webhook traffic stopped and returning {error_codes}"
+      - "Cannot reach app dashboard - DNS/server failing with {error_codes}"
+    bodies:
+      - "Our production users are receiving {error_codes} whenever accessing {endpoints}. Our monitoring alerts triggered 10 minutes ago. The {services} appears completely unresponsive."
+      - "Critical outage: All requests to {endpoints} have been failing with {error_codes} for the last 25 minutes. Production traffic is halted."
+      - "The entire cluster is failing health checks. Our engineering team has verified our own network is fine, but {services} returns {error_codes}."
+
+  bug:
+    subjects:
+      - "Clicking submit on export modal causes page crash"
+      - "Data table pagination resets to page 1 after filtering"
+      - "User role permission changes not persisting after save"
+      - "Graph display shows NaN values on monthly analytics"
+      - "Broken rendering on {services} when handling special characters"
+    bodies:
+      - "When navigating to the settings screen and updating user permissions, the changes appear to save, but refreshing reveals the old values. Please check {endpoints} response."
+      - "We encountered a bug in {services}: upon clicking export, the console shows an uncaught TypeError and the UI hangs indefinitely."
+      - "Every time our team attempts to filter by date range, the result set duplicates previous rows. Reproducible in Chrome and Firefox."
+
+  billing:
+    subjects:
+      - "Charged twice for {plan_names} subscription"
+      - "Invoice INV-8924 shows incorrect tax amount"
+      - "Payment method declined but card has sufficient funds"
+      - "Unable to upgrade seat count for {plan_names}"
+      - "Discrepancy in monthly metered usage calculations"
+    bodies:
+      - "We reviewed our credit card statement and found duplicate transactions for {plan_names}. Please verify our billing records for account ID #90812."
+      - "Our finance team requires an updated VAT invoice for last month's charge. The current PDF has the wrong legal company address."
+      - "We attempted to renew our {plan_names} plan but received a payment gateway error at {endpoints}. Please ensure our account is not suspended."
+
+  refund-request:
+    subjects:
+      - "Requesting full refund for accidental annual renewal"
+      - "Credit refund requested due to prolonged platform downtime"
+      - "Cancelled subscription within 14-day window, requesting refund"
+      - "Overbilled on seat licensing - refund requested"
+    bodies:
+      - "We intended to cancel before the automatic renewal of {plan_names} processed yesterday. We request a full refund to the original payment card."
+      - "Due to the severe SLA breach and recurring outages this month, our management is requesting a credit refund of 50% for this billing cycle."
+      - "We downgraded our plan last week, but our card was still charged the full enterprise amount. Please issue an immediate refund."
+
+  account-access:
+    subjects:
+      - "Admin user locked out of production account after MFA reset"
+      - "SSO SAML authentication loop with {integration_partners}"
+      - "Password reset link email never arriving in inbox"
+      - "Lost authenticator app device, need backup recovery code"
+      - "Session invalidation error: 401 Unauthorized across all users"
+    bodies:
+      - "Our primary organization administrator is locked out of the dashboard. MFA codes are failing with invalid token at {endpoints}."
+      - "Our employees cannot sign in via {integration_partners} SSO. The SAML handshake returns {error_codes} and redirects back to login."
+      - "I requested a password reset three times, but no email arrives. We need urgent access to production tenant to manage credentials."
+
+  security:
+    subjects:
+      - "Potential unauthorized API token usage detected in audit log"
+      - "Security disclosure: IDOR vulnerability found in {endpoints}"
+      - "Suspicious IP addresses accessing customer data exports"
+      - "CORS header wildcard misconfiguration on sensitive endpoints"
+    bodies:
+      - "Our SecOps team identified multiple anomalous requests from unfamiliar IPs targeting {endpoints}. We suspect an exposed API token and need an immediate audit."
+      - "We performed a vulnerability assessment and discovered that {endpoints} does not enforce object-level authorization checks. Details attached."
+      - "We noticed unauthorized attempts to rotate encryption keys via {services}. We need an incident response review immediately."
+
+  integration-issue:
+    subjects:
+      - "Webhook events failing to deliver to our listener endpoint"
+      - "{integration_partners} sync failing with {error_codes}"
+      - "REST API rate limit {error_codes} occurring prematurely"
+      - "Custom OAuth application callback URL failing validation"
+    bodies:
+      - "Our integration with {integration_partners} has stopped receiving webhook events since 08:00 UTC. The delivery log indicates {error_codes}."
+      - "We are calling {endpoints} with standard batch payloads, but receiving unexpected rate limit errors well below our contractual limit."
+      - "The Zapier integration keeps disconnecting every 24 hours. The refresh token appears to be invalidated prematurely."
+
+  performance:
+    subjects:
+      - "API response times degraded to >5000ms on {endpoints}"
+      - "Dashboard query timeouts when loading historical metrics"
+      - "High memory pressure and latency spikes on {services}"
+      - "Batch data export taking over 6 hours to complete"
+    bodies:
+      - "Latency on {endpoints} has spiked from the usual 120ms to over 4.8 seconds during peak hours. Our customers are reporting severe sluggishness."
+      - "Loading the analytics overview page frequently triggers {error_codes} due to backend gateway timeouts. The queries need optimization."
+      - "Every search query takes 15+ seconds to return results from {services}. This is degrading day-to-day productivity."
+
+  feature-request:
+    subjects:
+      - "Support for custom webhook payload signing with HMAC-SHA256"
+      - "Add dark mode theme option to web dashboard"
+      - "Requesting native integration connector for {integration_partners}"
+      - "Ability to bulk export user audit logs to S3 / GCS"
+      - "Granular RBAC permissions for read-only billing viewers"
+    bodies:
+      - "We would love to see native support for exporting our event logs directly to our cloud bucket. Currently we have to write custom scripts against {endpoints}."
+      - "Our compliance team requires role-based access control where billing viewers cannot modify payment methods. Would it be possible to add this role?"
+      - "It would be tremendously helpful if your platform supported native integrations with {integration_partners} for real-time notifications."
+
+  how-to-question:
+    subjects:
+      - "How to configure SAML SSO with {integration_partners}"
+      - "Where to find API credentials and webhook signing secret"
+      - "Best practices for setting up team workspaces and permissions"
+      - "How to filter analytics reports by custom tags"
+      - "Questions about automated invoice receipt emails"
+    bodies:
+      - "Could you provide documentation or an example on how to properly sign webhook payloads when verifying against {endpoints}?"
+      - "We are in the process of onboarding 50 new team members. Is there a guide on how to configure SCIM provisioning with {integration_partners}?"
+      - "Where in the settings dashboard can our finance team specify additional recipient emails for monthly invoices?"
+
+  data-export-deletion:
+    subjects:
+      - "GDPR Article 17 Right to Erasure request for user UUID"
+      - "Requesting full tenant data dump archive for compliance audit"
+      - "CCPA consumer data deletion confirmation required"
+      - "Automated data retention policy setup assistance"
+    bodies:
+      - "Please accept this formal GDPR data erasure request for user account ID #77129. We require confirmation within 30 days that all personal identifiable data has been purged."
+      - "Our compliance audit team requires an encrypted full database dump of our workspace data stored in {services}."
+      - "Pursuant to CCPA guidelines, please confirm deletion of all marketing tracking records associated with domain customer.com."

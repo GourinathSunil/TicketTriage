@@ -1,0 +1,86 @@
+domain_name: saas
+display_name: "Cloud SaaS Platform"
+description: "Intelligent triage and SLA routing for multi-tenant B2B SaaS software"
+
+teams:
+  - id: "Platform/SRE"
+    name: "Platform & SRE"
+    description: "Cloud infrastructure, outages, service health, and latency"
+  - id: "Engineering"
+    name: "Core Engineering"
+    description: "Application bug fixes, functional errors, and code defects"
+  - id: "Billing"
+    name: "Billing & Finance"
+    description: "Subscriptions, invoices, payment gateways, and refunds"
+  - id: "Identity/Auth"
+    name: "Identity & Access"
+    description: "User authentication, SAML/SSO, 2FA, passwords, and RBAC"
+  - id: "Security"
+    name: "Security & Compliance"
+    description: "Vulnerability disclosures, data privacy, and compliance exports"
+  - id: "Integrations"
+    name: "Integrations & APIs"
+    description: "REST APIs, Webhooks, OAuth apps, and SDKs"
+  - id: "Customer Success"
+    name: "Customer Success"
+    description: "Product guidance, onboarding, how-to inquiries, and best practices"
+  - id: "Product"
+    name: "Product Management"
+    description: "Feature requests, usability feedback, and enhancement backlog"
+
+labels:
+  - id: outage
+    name: "Service Outage"
+    description: "Platform down, critical endpoints unreachable, HTTP 500/503 spikes"
+    team: "Platform/SRE"
+    color: "#EF4444"
+  - id: bug
+    name: "Application Bug"
+    description: "Broken UI, unexpected behavior, failed jobs, or data mismatch"
+    team: "Engineering"
+    color: "#F97316"
+  - id: billing
+    name: "Billing & Invoicing"
+    description: "Invoice disputes, plan changes, payment card failure, tax info"
+    team: "Billing"
+    color: "#EAB308"
+  - id: refund-request
+    name: "Refund Request"
+    description: "Requests for subscription cancellation refund or credit chargeback"
+    team: "Billing"
+    color: "#F59E0B"
+  - id: account-access
+    name: "Account Access & Auth"
+    description: "Login lockout, MFA device lost, password reset failure, SSO session error"
+    team: "Identity/Auth"
+    color: "#3B82F6"
+  - id: security
+    name: "Security Incident"
+    description: "Suspicious login attempts, potential CVE/vulnerability, data exposure"
+    team: "Security"
+    color: "#DC2626"
+  - id: integration-issue
+    name: "API & Integrations"
+    description: "Webhook payloads dropped, REST API rate limit, Zapier sync broken"
+    team: "Integrations"
+    color: "#8B5CF6"
+  - id: performance
+    name: "Performance & Latency"
+    description: "Slow query response, dashboard timeouts, high processing delay"
+    team: "Platform/SRE"
+    color: "#EC4899"
+  - id: feature-request
+    name: "Feature Request"
+    description: "Customer requesting new capability, workflow, or integration"
+    team: "Product"
+    color: "#10B981"
+  - id: how-to-question
+    name: "How-To & Guidance"
+    description: "Assistance with settings, documentation, onboarding, or configuration"
+    team: "Customer Success"
+    color: "#06B6D4"
+  - id: data-export-deletion
+    name: "Data Export & GDPR"
+    description: "GDPR right to be forgotten, workspace archive or backup download"
+    team: "Security"
+    color: "#6366F1"

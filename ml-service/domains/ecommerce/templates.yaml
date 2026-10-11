@@ -1,0 +1,121 @@
+domain_name: ecommerce
+
+slots:
+  carriers:
+    - "FedEx Ground"
+    - "UPS Express"
+    - "DHL Worldwide"
+    - "USPS Priority"
+    - "OnTrac"
+  products:
+    - "Wireless Noise-Cancelling Headphones"
+    - "Organic Cotton Oxford Shirt (Size L)"
+    - "Ergonomic Office Chair"
+    - "Titanium Ceramic Cookware Set"
+    - "Smart Fitness Tracker Band"
+    - "Merino Wool Winter Jacket"
+  payment_methods:
+    - "Visa ending in 4192"
+    - "Apple Pay"
+    - "PayPal Checkout"
+    - "Klarna Pay in 4"
+    - "Store Gift Card"
+
+label_frequencies:
+  order-status: 0.35
+  return-exchange: 0.25
+  product-inquiry: 0.20
+  damaged-goods: 0.12
+  payment-issue: 0.10
+  account-login: 0.08
+  fraud-alert: 0.03
+
+co_occurrences:
+  - primary: "damaged-goods"
+    correlates_with:
+      return-exchange: 0.60
+  - primary: "payment-issue"
+    correlates_with:
+      fraud-alert: 0.25
+      return-exchange: 0.30
+  - primary: "order-status"
+    correlates_with:
+      damaged-goods: 0.15
+
+tones:
+  urgent:
+    prefixes: ["URGENT ORDER ISSUE: ", "IMMEDIATE ASSISTANCE: "]
+    body_closings: ["Please respond as soon as possible, this order is time-sensitive."]
+  angry:
+    prefixes: ["Extremely disappointed with order: ", "Terrible customer experience: "]
+    body_closings: ["I expect a prompt resolution or I will initiate a chargeback."]
+  polite:
+    prefixes: ["Quick inquiry regarding ", "Checking on order status for "]
+    body_closings: ["Thank you very much for your help!"]
+  neutral:
+    prefixes: ["Question about ", "Update requested on "]
+    body_closings: ["Order number #ORD-98124."]
+
+templates:
+  order-status:
+    subjects:
+      - "Tracking shows delivered but package not received via {carriers}"
+      - "Package in transit for 12 days with no updates from {carriers}"
+      - "Where is my order containing {products}?"
+    bodies:
+      - "I ordered {products} last week with express shipping via {carriers}. Tracking number hasn't updated in 4 days. Please advise on estimated arrival."
+      - "According to {carriers}, my delivery was completed yesterday, but there is no package on my porch. Please locate this shipment."
+
+  damaged-goods:
+    subjects:
+      - "Package arrived crushed and {products} is broken"
+      - "Defective item: {products} does not turn on"
+      - "Wrong item delivered instead of {products}"
+    bodies:
+      - "The shipping box arrived torn and {products} is badly scratched and dented. I have attached photos of the damaged packaging."
+      - "We opened the shipment from {carriers} and found a completely different product inside. Please send an immediate replacement for {products}."
+
+  return-exchange:
+    subjects:
+      - "Need prepaid return label for {products}"
+      - "Exchange request: need size change for {products}"
+      - "How do I return item for full store credit?"
+    bodies:
+      - "I would like to initiate a return for {products}. It does not fit as expected. Please email a prepaid shipping return label."
+      - "Can I exchange my {products} for a different color or size? Order was placed 5 days ago."
+
+  payment-issue:
+    subjects:
+      - "Charged twice using {payment_methods} on order checkout"
+      - "Discount code failed to apply to {products} purchase"
+      - "Payment declined during checkout with {payment_methods}"
+    bodies:
+      - "My bank statement shows two pending charges for the same order made via {payment_methods}. Please reverse the duplicate payment."
+      - "I entered our 20% promotional code at checkout, but my {payment_methods} was billed the full price without the discount."
+
+  fraud-alert:
+    subjects:
+      - "Unauthorized order placed using my {payment_methods}"
+      - "Suspicious purchase alert: did not authorize order for {products}"
+      - "My shopper account was hacked and card charged"
+    bodies:
+      - "I just received an order confirmation email for {products} shipped to an address in another state. I did not make this purchase! Cancel immediately."
+      - "Someone gained unauthorized access to my account and ordered items using my saved {payment_methods}. Stop shipment immediately."
+
+  account-login:
+    subjects:
+      - "Unable to reset password for customer account"
+      - "Two-factor verification SMS not arriving for login"
+      - "Missing rewards points after purchasing {products}"
+    bodies:
+      - "I have tried resetting my account password twice, but the reset email never arrives in my inbox. Please unlock my account."
+      - "I cannot log into my rewards dashboard to view order history. Getting an invalid credentials error."
+
+  product-inquiry:
+    subjects:
+      - "Questions about sizing and material for {products}"
+      - "Is {products} covered by manufacturer warranty?"
+      - "When will {products} be back in stock?"
+    bodies:
+      - "Could you provide exact dimensions and washing instructions for {products}? Want to ensure correct fit before purchasing."
+      - "Does {products} include international warranty coverage and power adapter compatibility?"

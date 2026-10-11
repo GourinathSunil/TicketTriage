@@ -1,0 +1,52 @@
+domain_name: your_domain_name
+
+priorities:
+  - id: P1
+    name: "P1 - Critical"
+    description: "Urgent response"
+    rank: 1
+    deadlines:
+      first_response_minutes: 30
+      resolution_minutes: 360
+    color: "#EF4444"
+    always_24x7: true
+
+  - id: P2
+    name: "P2 - Standard"
+    description: "Standard response"
+    rank: 2
+    deadlines:
+      first_response_minutes: 240
+      resolution_minutes: 1440
+    color: "#3B82F6"
+    always_24x7: false
+
+priority_rules:
+  - priority: P1
+    description: "Critical defect detected"
+    any_labels: ["critical-defect"]
+
+  - priority: P2
+    description: "Sample issue"
+    any_labels: ["sample-issue"]
+
+customer_tiers:
+  standard:
+    name: "Standard"
+    deadline_multiplier: 1.0
+    priority_bump: 0
+  vip:
+    name: "VIP"
+    deadline_multiplier: 0.5
+    priority_bump: 1
+
+business_hours:
+  enabled: true
+  timezone: "UTC"
+  work_start_hour: 9
+  work_end_hour: 17
+  workdays: [0, 1, 2, 3, 4]
+
+sla_status_thresholds:
+  at_risk_percentage: 0.70
+  confidence_gate_margin: 0.10

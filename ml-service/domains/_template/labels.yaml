@@ -1,0 +1,23 @@
+domain_name: your_domain_name
+display_name: "Your Domain Display Name"
+description: "Description of your domain support triage"
+
+teams:
+  - id: "Support"
+    name: "General Support"
+    description: "General tier-1 customer inquiries"
+  - id: "Technical"
+    name: "Technical Team"
+    description: "Technical troubleshooting"
+
+labels:
+  - id: sample-issue
+    name: "Sample Issue"
+    description: "A standard sample issue"
+    team: "Support"
+    color: "#3B82F6"
+  - id: critical-defect
+    name: "Critical Defect"
+    description: "Urgent issue needing technical attention"
+    team: "Technical"
+    color: "#EF4444"

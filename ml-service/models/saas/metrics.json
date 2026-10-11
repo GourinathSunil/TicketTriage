@@ -1,0 +1,547 @@
+{
+  "domain_name": "saas",
+  "best_model_name": "RandomForest",
+  "evaluation": {
+    "model_name": "RandomForest",
+    "hamming_loss": 0.0,
+    "subset_accuracy": 1.0,
+    "micro_f1": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "rare_macro_f1": 1.0,
+    "common_macro_f1": 1.0,
+    "train_time_sec": 13.28,
+    "per_label": {
+      "outage": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 65,
+        "frequency_pct": 4.33
+      },
+      "bug": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 485,
+        "frequency_pct": 32.33
+      },
+      "billing": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 209,
+        "frequency_pct": 13.93
+      },
+      "refund-request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 176,
+        "frequency_pct": 11.73
+      },
+      "account-access": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 143,
+        "frequency_pct": 9.53
+      },
+      "security": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 36,
+        "frequency_pct": 2.4
+      },
+      "integration-issue": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 158,
+        "frequency_pct": 10.53
+      },
+      "performance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 258,
+        "frequency_pct": 17.2
+      },
+      "feature-request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 153,
+        "frequency_pct": 10.2
+      },
+      "how-to-question": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 336,
+        "frequency_pct": 22.4
+      },
+      "data-export-deletion": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 39,
+        "frequency_pct": 2.6
+      }
+    },
+    "rare_labels": [
+      "outage",
+      "account-access",
+      "security",
+      "integration-issue",
+      "feature-request",
+      "data-export-deletion"
+    ],
+    "common_labels": [
+      "bug",
+      "billing",
+      "refund-request",
+      "performance",
+      "how-to-question"
+    ],
+    "latency_mean_ms": 431.394,
+    "latency_p50_ms": 395.966,
+    "latency_p95_ms": 641.05
+  },
+  "all_models": [
+    {
+      "model_name": "RandomForest",
+      "hamming_loss": 0.0,
+      "subset_accuracy": 1.0,
+      "micro_f1": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "rare_macro_f1": 1.0,
+      "common_macro_f1": 1.0,
+      "train_time_sec": 13.28,
+      "per_label": {
+        "outage": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 65,
+          "frequency_pct": 4.33
+        },
+        "bug": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 485,
+          "frequency_pct": 32.33
+        },
+        "billing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 209,
+          "frequency_pct": 13.93
+        },
+        "refund-request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 176,
+          "frequency_pct": 11.73
+        },
+        "account-access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 143,
+          "frequency_pct": 9.53
+        },
+        "security": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 36,
+          "frequency_pct": 2.4
+        },
+        "integration-issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 158,
+          "frequency_pct": 10.53
+        },
+        "performance": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 258,
+          "frequency_pct": 17.2
+        },
+        "feature-request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 153,
+          "frequency_pct": 10.2
+        },
+        "how-to-question": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 336,
+          "frequency_pct": 22.4
+        },
+        "data-export-deletion": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 39,
+          "frequency_pct": 2.6
+        }
+      },
+      "rare_labels": [
+        "outage",
+        "account-access",
+        "security",
+        "integration-issue",
+        "feature-request",
+        "data-export-deletion"
+      ],
+      "common_labels": [
+        "bug",
+        "billing",
+        "refund-request",
+        "performance",
+        "how-to-question"
+      ],
+      "latency_mean_ms": 431.394,
+      "latency_p50_ms": 395.966,
+      "latency_p95_ms": 641.05
+    },
+    {
+      "model_name": "XGBoost",
+      "hamming_loss": 0.0002,
+      "subset_accuracy": 0.998,
+      "micro_f1": 0.9993,
+      "macro_f1": 0.9981,
+      "weighted_f1": 0.9993,
+      "rare_macro_f1": 0.9966,
+      "common_macro_f1": 1.0,
+      "train_time_sec": 154.73,
+      "per_label": {
+        "outage": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 65,
+          "frequency_pct": 4.33
+        },
+        "bug": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 485,
+          "frequency_pct": 32.33
+        },
+        "billing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 209,
+          "frequency_pct": 13.93
+        },
+        "refund-request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 176,
+          "frequency_pct": 11.73
+        },
+        "account-access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 143,
+          "frequency_pct": 9.53
+        },
+        "security": {
+          "precision": 1.0,
+          "recall": 0.9722,
+          "f1": 0.9859,
+          "support": 36,
+          "frequency_pct": 2.4
+        },
+        "integration-issue": {
+          "precision": 1.0,
+          "recall": 0.9937,
+          "f1": 0.9968,
+          "support": 158,
+          "frequency_pct": 10.53
+        },
+        "performance": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 258,
+          "frequency_pct": 17.2
+        },
+        "feature-request": {
+          "precision": 1.0,
+          "recall": 0.9935,
+          "f1": 0.9967,
+          "support": 153,
+          "frequency_pct": 10.2
+        },
+        "how-to-question": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 336,
+          "frequency_pct": 22.4
+        },
+        "data-export-deletion": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 39,
+          "frequency_pct": 2.6
+        }
+      },
+      "rare_labels": [
+        "outage",
+        "account-access",
+        "security",
+        "integration-issue",
+        "feature-request",
+        "data-export-deletion"
+      ],
+      "common_labels": [
+        "bug",
+        "billing",
+        "refund-request",
+        "performance",
+        "how-to-question"
+      ],
+      "latency_mean_ms": 39.031,
+      "latency_p50_ms": 38.122,
+      "latency_p95_ms": 45.273
+    },
+    {
+      "model_name": "AdaBoost",
+      "hamming_loss": 0.0008,
+      "subset_accuracy": 0.9913,
+      "micro_f1": 0.9968,
+      "macro_f1": 0.9957,
+      "weighted_f1": 0.9969,
+      "rare_macro_f1": 0.9947,
+      "common_macro_f1": 0.9967,
+      "train_time_sec": 230.94,
+      "per_label": {
+        "outage": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 65,
+          "frequency_pct": 4.33
+        },
+        "bug": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 485,
+          "frequency_pct": 32.33
+        },
+        "billing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 209,
+          "frequency_pct": 13.93
+        },
+        "refund-request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 176,
+          "frequency_pct": 11.73
+        },
+        "account-access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 143,
+          "frequency_pct": 9.53
+        },
+        "security": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 36,
+          "frequency_pct": 2.4
+        },
+        "integration-issue": {
+          "precision": 1.0,
+          "recall": 0.9937,
+          "f1": 0.9968,
+          "support": 158,
+          "frequency_pct": 10.53
+        },
+        "performance": {
+          "precision": 0.9736,
+          "recall": 1.0,
+          "f1": 0.9866,
+          "support": 258,
+          "frequency_pct": 17.2
+        },
+        "feature-request": {
+          "precision": 1.0,
+          "recall": 0.9935,
+          "f1": 0.9967,
+          "support": 153,
+          "frequency_pct": 10.2
+        },
+        "how-to-question": {
+          "precision": 0.9941,
+          "recall": 1.0,
+          "f1": 0.997,
+          "support": 336,
+          "frequency_pct": 22.4
+        },
+        "data-export-deletion": {
+          "precision": 0.9512,
+          "recall": 1.0,
+          "f1": 0.975,
+          "support": 39,
+          "frequency_pct": 2.6
+        }
+      },
+      "rare_labels": [
+        "outage",
+        "account-access",
+        "security",
+        "integration-issue",
+        "feature-request",
+        "data-export-deletion"
+      ],
+      "common_labels": [
+        "bug",
+        "billing",
+        "refund-request",
+        "performance",
+        "how-to-question"
+      ],
+      "latency_mean_ms": 62.03,
+      "latency_p50_ms": 55.935,
+      "latency_p95_ms": 93.48
+    },
+    {
+      "model_name": "ClassifierChain(RandomForest)",
+      "hamming_loss": 0.0,
+      "subset_accuracy": 1.0,
+      "micro_f1": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "rare_macro_f1": 1.0,
+      "common_macro_f1": 1.0,
+      "train_time_sec": 12.19,
+      "per_label": {
+        "outage": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 65,
+          "frequency_pct": 4.33
+        },
+        "bug": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 485,
+          "frequency_pct": 32.33
+        },
+        "billing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 209,
+          "frequency_pct": 13.93
+        },
+        "refund-request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 176,
+          "frequency_pct": 11.73
+        },
+        "account-access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 143,
+          "frequency_pct": 9.53
+        },
+        "security": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 36,
+          "frequency_pct": 2.4
+        },
+        "integration-issue": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 158,
+          "frequency_pct": 10.53
+        },
+        "performance": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 258,
+          "frequency_pct": 17.2
+        },
+        "feature-request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 153,
+          "frequency_pct": 10.2
+        },
+        "how-to-question": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 336,
+          "frequency_pct": 22.4
+        },
+        "data-export-deletion": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 39,
+          "frequency_pct": 2.6
+        }
+      },
+      "rare_labels": [
+        "outage",
+        "account-access",
+        "security",
+        "integration-issue",
+        "feature-request",
+        "data-export-deletion"
+      ],
+      "common_labels": [
+        "bug",
+        "billing",
+        "refund-request",
+        "performance",
+        "how-to-question"
+      ],
+      "latency_mean_ms": 762.219,
+      "latency_p50_ms": 751.017,
+      "latency_p95_ms": 889.343
+    }
+  ],
+  "timestamp": 1791450318.2160025
+}

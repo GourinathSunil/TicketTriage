@@ -1,0 +1,13 @@
+{
+  "outage": 0.15,
+  "bug": 0.15,
+  "billing": 0.29,
+  "refund-request": 0.15,
+  "account-access": 0.15,
+  "security": 0.15,
+  "integration-issue": 0.15,
+  "performance": 0.15,
+  "feature-request": 0.15,
+  "how-to-question": 0.15,
+  "data-export-deletion": 0.15
+}

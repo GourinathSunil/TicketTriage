@@ -1,0 +1,36 @@
+domain_name: your_domain_name
+
+slots:
+  features:
+    - "Login module"
+    - "Checkout flow"
+    - "Profile page"
+
+label_frequencies:
+  sample-issue: 0.70
+  critical-defect: 0.30
+
+co_occurrences:
+  - primary: "critical-defect"
+    correlates_with:
+      sample-issue: 0.20
+
+tones:
+  polite:
+    prefixes: ["Inquiry: "]
+    body_closings: ["Thank you!"]
+  urgent:
+    prefixes: ["CRITICAL: "]
+    body_closings: ["Needs immediate action."]
+
+templates:
+  sample-issue:
+    subjects:
+      - "Question about {features}"
+    bodies:
+      - "I am having difficulty configuring {features}. Can someone explain how to use it?"
+  critical-defect:
+    subjects:
+      - "Fatal breakdown in {features}"
+    bodies:
+      - "{features} has stopped functioning entirely. Error shown to end users."

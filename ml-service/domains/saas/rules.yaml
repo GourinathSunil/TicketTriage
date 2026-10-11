@@ -1,0 +1,96 @@
+domain_name: saas
+
+priorities:
+  - id: P1
+    name: "P1 - Critical"
+    description: "System outage, active security threat, or critical access block"
+    rank: 1
+    deadlines:
+      first_response_minutes: 15
+      resolution_minutes: 240
+    color: "#EF4444"
+    always_24x7: true
+
+  - id: P2
+    name: "P2 - High"
+    description: "Significant performance degradation, billing refund, or GDPR compliance"
+    rank: 2
+    deadlines:
+      first_response_minutes: 60
+      resolution_minutes: 480
+    color: "#F97316"
+    always_24x7: false
+
+  - id: P3
+    name: "P3 - Medium"
+    description: "Functional bugs with workaround, routine billing, standard integrations"
+    rank: 3
+    deadlines:
+      first_response_minutes: 240
+      resolution_minutes: 1440
+    color: "#3B82F6"
+    always_24x7: false
+
+  - id: P4
+    name: "P4 - Low"
+    description: "Feature requests, documentation guidance, general questions"
+    rank: 4
+    deadlines:
+      first_response_minutes: 1440
+      resolution_minutes: 10080
+    color: "#6B7280"
+    always_24x7: false
+
+priority_rules:
+  - priority: P1
+    description: "Outage or security incident detected"
+    any_labels: ["outage", "security"]
+
+  - priority: P1
+    description: "Account access issue with urgency wording"
+    all_labels: ["account-access"]
+    keywords_any: ["urgent", "emergency", "immediately", "locked out of production", "asap", "executive", "critical", "blocking launch"]
+
+  - priority: P2
+    description: "Performance degradation, refund request, or data export/deletion"
+    any_labels: ["performance", "refund-request", "data-export-deletion"]
+
+  - priority: P2
+    description: "Software bug causing billing discrepancy"
+    all_labels: ["bug", "billing"]
+
+  - priority: P3
+    description: "Standard application bug, billing inquiry, integration issue, or access question"
+    any_labels: ["bug", "billing", "integration-issue", "account-access"]
+
+  - priority: P4
+    description: "Feature request or general how-to inquiry"
+    any_labels: ["feature-request", "how-to-question"]
+
+customer_tiers:
+  free:
+    name: "Free Tier"
+    deadline_multiplier: 1.0
+    priority_bump: 0
+
+  pro:
+    name: "Pro Tier"
+    deadline_multiplier: 0.8
+    priority_bump: 0
+
+  enterprise:
+    name: "Enterprise Tier"
+    deadline_multiplier: 0.5
+    priority_bump: 1
+    priority_bump_labels: ["outage", "security", "performance", "bug"]
+
+business_hours:
+  enabled: true
+  timezone: "UTC"
+  work_start_hour: 9
+  work_end_hour: 17
+  workdays: [0, 1, 2, 3, 4] # Monday = 0, Friday = 4
+
+sla_status_thresholds:
+  at_risk_percentage: 0.70
+  confidence_gate_margin: 0.10

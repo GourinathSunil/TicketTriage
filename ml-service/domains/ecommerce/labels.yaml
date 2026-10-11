@@ -1,0 +1,63 @@
+domain_name: ecommerce
+display_name: "E-Commerce & Retail"
+description: "Customer service triage and SLA management for online retail & D2C stores"
+
+teams:
+  - id: "Trust & Safety"
+    name: "Trust & Safety"
+    description: "Fraud detection, compromised cards, and account takeovers"
+  - id: "Logistics"
+    name: "Shipping & Logistics"
+    description: "Carriers, tracking, delivery delays, and customs"
+  - id: "Payments"
+    name: "Payments & Billing"
+    description: "Payment gateways, cards, discounts, and checkout errors"
+  - id: "Returns"
+    name: "Returns & Exchanges"
+    description: "Return labels, RMA requests, size exchanges, and credits"
+  - id: "Quality & Fulfillment"
+    name: "Quality & Warehouse"
+    description: "Damaged packages, missing items, and warehouse inspection"
+  - id: "Customer Support"
+    name: "Customer Care"
+    description: "General shopper inquiries, accounts, and order changes"
+  - id: "Product Support"
+    name: "Product Specialists"
+    description: "Product sizing, ingredients, specs, and warranties"
+
+labels:
+  - id: fraud-alert
+    name: "Fraud & Security Alert"
+    description: "Unauthorized transaction or suspected compromised shopper account"
+    team: "Trust & Safety"
+    color: "#EF4444"
+  - id: damaged-goods
+    name: "Damaged / Defective Item"
+    description: "Package arrived broken, opened, leaked, or wrong item shipped"
+    team: "Quality & Fulfillment"
+    color: "#DC2626"
+  - id: payment-issue
+    name: "Payment & Checkout Failure"
+    description: "Card declined, double charged, promo code failed to apply"
+    team: "Payments"
+    color: "#F59E0B"
+  - id: order-status
+    name: "Order Tracking & Delivery"
+    description: "Where is my package, delayed carrier tracking, delivery address update"
+    team: "Logistics"
+    color: "#3B82F6"
+  - id: return-exchange
+    name: "Return & Exchange"
+    description: "Requesting return shipping label, exchange size/color, store credit"
+    team: "Returns"
+    color: "#8B5CF6"
+  - id: account-login
+    name: "Shopper Account & Login"
+    description: "Password reset, locked account, loyalty reward points missing"
+    team: "Customer Support"
+    color: "#06B6D4"
+  - id: product-inquiry
+    name: "Product Specs & Sizing"
+    description: "Questions on materials, dimensions, compatibility, or restocking date"
+    team: "Product Support"
+    color: "#10B981"
